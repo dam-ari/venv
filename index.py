@@ -24,8 +24,14 @@ def contact():
     return 'Contact Page Route'
 
 
+import os
+# Get the directory where the current file is located
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the path to 'data.json' relative to the current directory
+data_file_path = os.path.join(current_dir, 'data.json')
 @app.route('/api')
 def api():
-    with open('data.json', mode='r') as my_file:
+    with open(data_file_path , mode='r') as my_file:
         text = my_file.read()
         return text
