@@ -32,6 +32,9 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 data_file_path = os.path.join(current_dir, 'data.json')
 @app.route('/api')
 def api():
+    # return current_dir AND dir contents
+    # return current_dir + '\n' + str(os.listdir(current_dir)) 
+    
     with open(data_file_path , mode='r') as my_file:
         text = my_file.read()
         return text
